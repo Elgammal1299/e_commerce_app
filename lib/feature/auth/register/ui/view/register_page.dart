@@ -30,39 +30,30 @@ class RegisterPage extends StatelessWidget {
               children: [
                 Text('Create \nAccount', style: AppStyles.styleBold52(context)),
                 SizedBox(height: 54),
-                DottedBorder(
-                  options: CircularDottedBorderOptions(
-                    color: AppColors.primryColor,
-                    strokeCap: StrokeCap.round,
-                    strokeWidth: 2,
-                    dashPattern: [12, 10],
-                  ),
+                InkWell(
+                  onTap: () {},
+                  child: DottedBorder(
+                    options: CircularDottedBorderOptions(
+                      color: AppColors.primryColor,
+                      strokeCap: StrokeCap.round,
+                      strokeWidth: 2,
+                      dashPattern: [12, 10],
+                    ),
 
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(90),
-                    child: Container(
-                      padding: EdgeInsets.all(24),
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: AppColors.primryColor,
-                        size: 50,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(90),
+                      child: Container(
+                        padding: EdgeInsets.all(24),
+                        child: Icon(
+                          Icons.camera_alt_outlined,
+                          color: AppColors.primryColor,
+                          size: 50,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                // Container(
-                //   padding: EdgeInsets.all(24),
-                //   decoration: BoxDecoration(
-                //     border: Border.all(color: AppColors.primryColor, width: 3),
-                //     borderRadius: BorderRadius.circular(90),
-                //   ),
 
-                //   child: Icon(
-                //     Icons.camera_alt_outlined,
-                //     color: AppColors.primryColor,
-                //     size: 50,
-                //   ),
-                // ),
                 SizedBox(height: 32),
                 CustomTextForm(hintText: 'Email'),
                 SizedBox(height: 7),
