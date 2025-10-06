@@ -42,7 +42,12 @@ class StartPage extends StatelessWidget {
               style: AppStyles.styleRegular20(context).copyWith(height: 2),
             ),
             Spacer(),
-            CustomElevatedButton(text: 'Let\'s get started', onPressed: () {}),
+            CustomElevatedButton(
+              text: 'Let\'s get started',
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.registerRoute);
+              },
+            ),
             SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
