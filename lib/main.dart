@@ -18,9 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.login,
+      initialRoute: Routes.startRoute,
       onGenerateRoute: AppRouter().onGenerateRoute,
-      home: Scaffold(body: Text('data')),
     );
   }
 }
