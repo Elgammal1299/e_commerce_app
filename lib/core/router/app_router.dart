@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/core/router/router_transitions.dart';
 import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/feature/auth/login/ui/view/start_page.dart';
-import 'package:e_commerce_app/feature/login_view.dart';
+import 'package:e_commerce_app/feature/auth/login/ui/view/login_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {

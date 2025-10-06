@@ -66,6 +66,7 @@ abstract class AppStyles {
     );
   }
 
+
   static TextStyle styleRegular15(BuildContext context) {
     return TextStyle(
       color: AppColors.blackColor,

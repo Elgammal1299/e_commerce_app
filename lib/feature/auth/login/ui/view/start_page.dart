@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
@@ -51,13 +52,18 @@ class StartPage extends StatelessWidget {
                   style: AppStyles.styleRegular15(context),
                 ),
                 SizedBox(width: 16),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: AppColors.primryColor,
-                    borderRadius: BorderRadius.circular(99),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, Routes.login);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: AppColors.primryColor,
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    child: Icon(Icons.arrow_forward, color: Colors.white),
                   ),
-                  child: Icon(Icons.arrow_forward, color: Colors.white),
                 ),
               ],
             ),
