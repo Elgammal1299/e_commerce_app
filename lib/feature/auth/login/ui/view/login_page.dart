@@ -5,8 +5,8 @@ import 'package:e_commerce_app/core/utils/widget/custom_elevated_button.dart';
 import 'package:e_commerce_app/core/utils/widget/custom_text_form.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,4 +6,5 @@ class AppImages {
   static const String bubble4Images = 'assets/images/bubble 04.png';
   static const String bubble5Images = 'assets/images/bubble 05.png';
   static const String bubble6Images = 'assets/images/bubble 06.png';
+  static const String avatarImages = 'assets/images/avatar.jpg';
 }
