@@ -45,10 +45,7 @@ class StartPage extends StatelessWidget {
             CustomElevatedButton(
               text: 'Let\'s get started',
               onPressed: () {
-                Navigator.pushReplacementNamed(
-                  context,
-                  Routes.verifyEmailRoute,
-                );
+                Navigator.pushReplacementNamed(context, Routes.registerRoute);
               },
             ),
             SizedBox(height: 18),

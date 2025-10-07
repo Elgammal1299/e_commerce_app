@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_data_sources.dart';
+part of 'api_service.dart';
 
 // dart format off
 
@@ -10,8 +10,8 @@ part of 'register_data_sources.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
-class _RegisterDataSources implements RegisterDataSources {
-  _RegisterDataSources(this._dio, {this.baseUrl, this.errorLogger}) {
+class _ApiService implements ApiService {
+  _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://accessories-eshop.runasp.net';
   }
 
@@ -22,7 +22,7 @@ class _RegisterDataSources implements RegisterDataSources {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<RegisterResponseModel> appleLogin(RegisterBodyModel body) async {
+  Future<RegisterResponseModel> register(RegisterBodyModel body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -42,6 +42,34 @@ class _RegisterDataSources implements RegisterDataSources {
     late RegisterResponseModel _value;
     try {
       _value = RegisterResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<String> verifyEmail(VerifyOtpBody body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _options = _setStreamType<String>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/auth/verify-email',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<String>(_options);
+    late String _value;
+    try {
+      _value = _result.data!;
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

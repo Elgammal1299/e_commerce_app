@@ -1,14 +1,15 @@
-
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomPinCodeWidget extends StatelessWidget {
-  const CustomPinCodeWidget({super.key});
+  const CustomPinCodeWidget({super.key, required this.controller});
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
+      controller: controller,
       appContext: context,
       length: 6,
       // autoFocus: true,

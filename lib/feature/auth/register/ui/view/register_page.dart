@@ -2,8 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
-import 'package:e_commerce_app/core/utils/widget/custom_elevated_button.dart';
-import 'package:e_commerce_app/core/utils/widget/custom_text_form.dart';
+import 'package:e_commerce_app/feature/auth/register/ui/view/widget/custom_register_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -59,21 +58,7 @@ class RegisterPage extends StatelessWidget {
                   ),
 
                   SizedBox(height: 32),
-                  CustomTextForm(hintText: 'Email'),
-                  SizedBox(height: 7),
-                  CustomTextForm(hintText: 'Password'),
-                  SizedBox(height: 7),
-                  CustomTextForm(hintText: 'First Name'),
-                  SizedBox(height: 7),
-                  CustomTextForm(hintText: 'Last Name'),
-                  SizedBox(height: 70),
-                  CustomElevatedButton(text: 'Done', onPressed: () {}),
-                  SizedBox(height: 14),
-                  Align(
-                    alignment: AlignmentGeometry.bottomCenter,
-                    child: TextButton(onPressed: () {}, child: Text('Cancel')),
-                  ),
-                  // SizedBox(height: 50),
+                  CustomRegisterForm(),
                 ],
               ),
             ),
