@@ -30,6 +30,7 @@ class CustomTextForm extends StatelessWidget {
   final Key? valueKey;
   final Function()? onTap;
   final String? apiError;
+  final BorderRadius? borderRadius;
   const CustomTextForm({
     super.key,
     required this.hintText,
@@ -59,6 +60,7 @@ class CustomTextForm extends StatelessWidget {
     this.textAlign,
     this.isValidator,
     this.apiError,
+    this.borderRadius,
   });
   @override
   Widget build(BuildContext context) {
@@ -87,7 +89,7 @@ class CustomTextForm extends StatelessWidget {
         suffixIconConstraints: BoxConstraints(minWidth: 14, minHeight: 8),
         hoverColor: hoverColor,
         filled: true,
-        fillColor: fillColor ?? AppColors.greyColor,
+        fillColor: fillColor ?? AppColors.grey3Color,
         alignLabelWithHint: true,
         prefixIcon: prefixIcon,
         errorText: apiError,
@@ -96,7 +98,7 @@ class CustomTextForm extends StatelessWidget {
           // borderSide: BorderSide(color: R.colors.borderColorsLight),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(60)),
+          borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(60)),
           borderSide: BorderSide(
             color: colorEnableBorder ?? AppColors.whiteColor,
           ),
