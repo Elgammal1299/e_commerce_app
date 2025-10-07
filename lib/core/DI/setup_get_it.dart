@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/api/api_service.dart';
 import 'package:e_commerce_app/core/api/dio_factory.dart';
+import 'package:e_commerce_app/feature/auth/login/data/repo/lodin_repo.dart';
+import 'package:e_commerce_app/feature/auth/login/ui/view_model/login_cubit/login_cubit.dart';
 import 'package:e_commerce_app/feature/auth/register/data/repo/register_repo.dart';
 import 'package:e_commerce_app/feature/auth/register/data/repo/verify_email_repo.dart';
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/register_cubit/register_cubit.dart';
@@ -36,4 +38,10 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<VerifyEmailCubit>(
     () => VerifyEmailCubit(getIt<VerifyEmailRepo>()),
   );
+  //================================
+  // ✅ Register LoginRepo
+  getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt<ApiService>()));
+
+  // ✅ Register VerifyEmailCubit
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
 }

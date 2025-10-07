@@ -1,37 +1,42 @@
-// import 'dart:developer';
-// import 'package:dartz/dartz.dart';
-// import 'package:dio/dio.dart';
-// import 'package:mzaodina_app/core/api/api_service.dart';
-// import 'package:mzaodina_app/core/constant/shared_preferences_key.dart';
-// import 'package:mzaodina_app/core/error/failure.dart';
-// import 'package:mzaodina_app/core/helper/shaerd_pref_helper.dart';
-// import 'package:mzaodina_app/feature/auth/login/data/model/login_request_body.dart';
-// import 'package:mzaodina_app/feature/auth/login/data/model/login_response_model.dart';
+import 'dart:developer';
 
-// class LoginRepo {
-//   final ApiService apiService;
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:e_commerce_app/core/api/api_service.dart';
+import 'package:e_commerce_app/core/constant/shared_preferences_key.dart';
+import 'package:e_commerce_app/core/error/failure.dart';
+import 'package:e_commerce_app/core/helper/shaerd_pref_helper.dart';
+import 'package:e_commerce_app/feature/auth/login/data/model/login_body_model.dart';
+import 'package:e_commerce_app/feature/auth/login/data/model/login_response_model.dart';
 
-//   LoginRepo(this.apiService);
+class LoginRepo {
+  final ApiService apiService;
 
-//   Future<Either<Failure, LoginResponseModel>> login(
-//     LoginRequestBody body,
-//   ) async {
-//     try {
-//       final response = await apiService.login(body);
+  LoginRepo(this.apiService);
 
-//       if (response.accessToken != null && response.accessToken!.isNotEmpty) {
-//         await SharedPrefHelper.setSecuredString(
-//           SharedPreferencesKeys.authToken,
-//           response.accessToken!,
-//         );
-//         log("Token saved successfully!");
-//       }
+  Future<Either<Failure, LoginResponseModel>> login(LoginBodyModel body) async {
+    try {
+      final response = await apiService.login(body);
+      if (response.accessToken.isNotEmpty) {
+        await SharedPrefHelper.setSecuredString(
+          SharedPreferencesKeys.accessToken,
+          response.accessToken,
+        );
+        log("Token saved successfully!");
+      }
+      if (response.refreshToken.isNotEmpty) {
+        await SharedPrefHelper.setSecuredString(
+          SharedPreferencesKeys.refreshToken,
+          response.refreshToken,
+        );
+        log("Refresh Token saved successfully!");
+      }
 
-//       return Right(response);
-//     } on DioException catch (dioError) {
-//       return left(ServerFailure.fromDioError(dioError));
-//     } catch (e) {
-//       return left(ServerFailure(e.toString()));
-//     }
-//   }
-// }
+      return Right(response);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+}

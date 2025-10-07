@@ -21,7 +21,6 @@ class _CustomRegisterFormState extends State<CustomRegisterForm> {
   final TextEditingController firstNameCtrl = TextEditingController();
   final TextEditingController lastNameCtrl = TextEditingController();
   final ValueNotifier<bool> isPasswordHidden = ValueNotifier(true);
-  final ValueNotifier<bool> privacy = ValueNotifier(false);
 
   @override
   void dispose() {

@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/constant/shared_preferences_key.dart';
 
 import 'shaerd_pref_helper.dart';
@@ -6,7 +5,7 @@ import 'shaerd_pref_helper.dart';
 class UserSession {
   static Future<bool> isLoggedIn() async {
     final token = await SharedPrefHelper.getSecuredString(
-      SharedPreferencesKeys.authToken,
+      SharedPreferencesKeys.accessToken,
     );
     return token != null && token.isNotEmpty;
   }

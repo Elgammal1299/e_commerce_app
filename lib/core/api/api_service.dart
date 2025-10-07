@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/api/api_constants.dart';
+import 'package:e_commerce_app/feature/auth/login/data/model/login_body_model.dart';
+import 'package:e_commerce_app/feature/auth/login/data/model/login_response_model.dart';
 import 'package:e_commerce_app/feature/auth/register/data/model/register_body_model.dart';
 import 'package:e_commerce_app/feature/auth/register/data/model/register_response_model.dart';
 import 'package:e_commerce_app/feature/auth/register/data/model/verify_otp_body.dart';
@@ -22,6 +24,9 @@ abstract class ApiService {
   // service for email register
   @POST(ApiConstants.register)
   Future<RegisterResponseModel> register(@Body() RegisterBodyModel body);
+  // service for email Login
+  @POST(ApiConstants.login)
+  Future<LoginResponseModel> login(@Body() LoginBodyModel body);
   // service for verifyEmail
   @POST(ApiConstants.verifyEmail)
   Future<String> verifyEmail(@Body() VerifyOtpBody body);
