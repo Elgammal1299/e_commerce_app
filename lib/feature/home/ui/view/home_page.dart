@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
@@ -83,14 +84,21 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 15),
-                        const CustomRowViewAll(title: 'Choose Brand'),
+                        CustomRowViewAll(
+                          title: 'Choose Brand',
+                          onPresse: () {},
+                        ),
                         const SizedBox(height: 15),
                         SizedBox(
                           height: 50,
                           child: CustomBrandList(brands: brands),
                         ),
                         const SizedBox(height: 15),
-                        const CustomRowViewAll(title: 'New Arrival'),
+                        CustomRowViewAll(
+                          title: 'New Arrival',
+                          onPresse: () {
+                          },
+                        ),
                         const SizedBox(height: 15),
                       ]),
                     ),
@@ -100,7 +108,15 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     sliver: SliverGrid(
                       delegate: SliverChildBuilderDelegate((context, index) {
-                        return CustomProductCard(index: index);
+                        return InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              Routes.homeDetilsRoute,
+                            );
+                          },
+                          child: CustomProductCard(index: index),
+                        );
                       }, childCount: 10),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(

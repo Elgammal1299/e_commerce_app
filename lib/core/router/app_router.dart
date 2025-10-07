@@ -8,7 +8,9 @@ import 'package:e_commerce_app/feature/auth/register/ui/view/register_page.dart'
 import 'package:e_commerce_app/feature/auth/register/ui/view/verify_email_page.dart';
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/register_cubit/register_cubit.dart';
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/verify_email_cubit/verify_email_cubit.dart';
+import 'package:e_commerce_app/feature/home/ui/view/home_detils_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_page.dart';
+import 'package:e_commerce_app/feature/home/ui/view/review_page.dart';
 import 'package:e_commerce_app/feature/nav_bar/view/nav_bar.dart';
 import 'package:e_commerce_app/feature/nav_bar/view_model/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,10 @@ class AppRouter {
     switch (settings.name) {
       case Routes.startRoute:
         return RouterTransitions.build(StartPage());
+      case Routes.homeDetilsRoute:
+        return RouterTransitions.build(HomeDetilsPage());
+      case Routes.reviewRoute:
+        return RouterTransitions.build(ReviewPage());
       case Routes.navBarRoute:
         return RouterTransitions.build(
           BlocProvider(create: (context) => NavBarCubit(), child: NavBarPage()),

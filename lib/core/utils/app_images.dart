@@ -19,4 +19,5 @@ class AppImages {
   static const String pumaIcon = 'assets/images/puma.svg';
   static const String filaIcon = 'assets/images/fila.svg';
   static const String proIcon = 'assets/images/pro.png';
+  static const String pro2Icon = 'assets/images/pro2.png';
 }
