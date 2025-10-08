@@ -20,4 +20,7 @@ class AppImages {
   static const String filaIcon = 'assets/images/fila.svg';
   static const String proIcon = 'assets/images/pro.png';
   static const String pro2Icon = 'assets/images/pro2.png';
+  static const String pro3Icon = 'assets/images/pro3.png';
+  static const String mapIcon = 'assets/images/map.png';
+  static const String visaIcon = 'assets/images/visa.png';
 }
