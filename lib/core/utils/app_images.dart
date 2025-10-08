@@ -23,4 +23,5 @@ class AppImages {
   static const String pro3Icon = 'assets/images/pro3.png';
   static const String mapIcon = 'assets/images/map.png';
   static const String visaIcon = 'assets/images/visa.png';
+  static const String paymentImage = 'assets/images/payment.png';
 }
