@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/utils/app_colors.dart';
+import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_review_item.dart';
 import 'package:flutter/material.dart';
@@ -48,15 +49,24 @@ class ReviewPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 30),
-            CustomReviewItem(),
+            CustomReviewItem(image: AppImages.pro6Icon, title: 'Jenny Wilson'),
             SizedBox(height: 20),
-            CustomReviewItem(),
+            CustomReviewItem(
+              image: AppImages.pro2Icon,
+              title: 'Ronald Richards',
+            ),
             SizedBox(height: 20),
-            CustomReviewItem(),
+            CustomReviewItem(image: AppImages.proIcon, title: 'Guy Hawkins'),
             SizedBox(height: 20),
-            CustomReviewItem(),
+            CustomReviewItem(
+              image: AppImages.pro3Icon,
+              title: 'Savannah Nguyen',
+            ),
             SizedBox(height: 20),
-            CustomReviewItem(),
+            CustomReviewItem(
+              image: AppImages.pro4Icon,
+              title: 'Ronald Richards',
+            ),
           ],
         ),
       ),

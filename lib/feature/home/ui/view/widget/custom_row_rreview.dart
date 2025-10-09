@@ -19,7 +19,7 @@ class CustomRowreview extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                AppImages.proIcon,
+                AppImages.proViewIcon,
                 fit: BoxFit.fill,
                 height: 85,
               ),
@@ -37,7 +37,7 @@ class CustomRowreview extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                AppImages.proIcon,
+                AppImages.proView1Icon,
                 fit: BoxFit.fill,
                 height: 85,
               ),
@@ -55,7 +55,7 @@ class CustomRowreview extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                AppImages.proIcon,
+                AppImages.proView2Icon,
                 fit: BoxFit.fill,
                 height: 85,
               ),
@@ -73,7 +73,7 @@ class CustomRowreview extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                AppImages.proIcon,
+                AppImages.proView3Icon,
                 fit: BoxFit.fill,
                 height: 85,
               ),

@@ -4,8 +4,8 @@ import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardItem extends StatelessWidget {
-  const CustomCardItem({super.key});
-
+  const CustomCardItem({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +25,7 @@ class CustomCardItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               color: AppColors.greyColor,
             ),
-            child: Image.asset(AppImages.pro3Icon, width: 100, height: 100),
+            child: Image.asset(image, width: 100, height: 100),
           ),
           SizedBox(width: 15),
           Column(

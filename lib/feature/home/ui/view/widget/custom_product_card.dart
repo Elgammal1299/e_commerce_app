@@ -2,12 +2,12 @@
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 class CustomProductCard extends StatelessWidget {
-  final int index;
-  const CustomProductCard({super.key, required this.index});
+  final ProductModel product;
+  const CustomProductCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CustomProductCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                AppImages.proIcon,
+                product.image,
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -27,13 +27,13 @@ class CustomProductCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Nike Sportswear Club Fleece',
+              product.name,
               style: AppStyles.styleRegular15(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             Text(
-              r'$99',
+              '\$${product.price}',
               style: AppStyles.styleRegular22(context).copyWith(
                 color: AppColors.blackColor,
                 fontWeight: FontWeight.bold,
@@ -47,7 +47,10 @@ class CustomProductCard extends StatelessWidget {
             onTap: () {},
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(AppImages.wishIcon),
+              child: SvgPicture.asset(
+                
+                AppImages.wishIcon
+              ),
             ),
           ),
         ),

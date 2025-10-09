@@ -21,6 +21,13 @@ class AppImages {
   static const String proIcon = 'assets/images/pro.png';
   static const String pro2Icon = 'assets/images/pro2.png';
   static const String pro3Icon = 'assets/images/pro3.png';
+  static const String pro4Icon = 'assets/images/pro4.png';
+  static const String pro5Icon = 'assets/images/pro5.png';
+  static const String pro6Icon = 'assets/images/pro6.png';
+  static const String proViewIcon = 'assets/images/pro_view.png';
+  static const String proView1Icon = 'assets/images/pro_view1.png';
+  static const String proView2Icon = 'assets/images/pro_view2.png';
+  static const String proView3Icon = 'assets/images/pro_view3.png';
   static const String mapIcon = 'assets/images/map.png';
   static const String visaIcon = 'assets/images/visa.png';
   static const String paymentImage = 'assets/images/payment.png';

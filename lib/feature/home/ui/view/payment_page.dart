@@ -81,6 +81,7 @@ class PaymentPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(width: 20),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

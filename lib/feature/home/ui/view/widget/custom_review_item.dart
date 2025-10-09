@@ -1,10 +1,10 @@
-
-import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomReviewItem extends StatelessWidget {
-  const CustomReviewItem({super.key});
+  const CustomReviewItem({super.key, required this.image, required this.title});
+  final String image;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CustomReviewItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
 
               child: Image.asset(
-                AppImages.pro2Icon,
+                image,
                 width: 50,
                 height: 50,
                 fit: BoxFit.fill,
@@ -27,7 +27,7 @@ class CustomReviewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Ronald Richards',
+                  title,
                   style: AppStyles.styleRegular20(
                     context,
                   ).copyWith(fontWeight: FontWeight.bold, fontSize: 18),

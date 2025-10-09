@@ -44,7 +44,7 @@ class HomeDetilsPage extends StatelessWidget {
                     children: [
                       Image.asset(
                         height: MediaQuery.sizeOf(context).height / 2,
-                        AppImages.proIcon,
+                        AppImages.pro6Icon,
                         width: double.infinity,
                         fit: BoxFit.fill,
                       ),
@@ -131,7 +131,10 @@ class HomeDetilsPage extends StatelessWidget {
                               },
                             ),
                             SizedBox(height: 10),
-                            CustomReviewItem(),
+                            CustomReviewItem(
+                              image: AppImages.pro6Icon,
+                              title: 'Ronald Richards',
+                            ),
                             SizedBox(height: 10),
                             Row(
                               children: [

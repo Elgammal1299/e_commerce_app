@@ -4,6 +4,7 @@ import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:e_commerce_app/core/utils/widget/custom_text_form.dart';
 import 'package:e_commerce_app/feature/home/data/model/brand_model.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_band_list.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_product_card.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_view_all.dart';
@@ -15,14 +16,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<BrandModel> brands = [
-      BrandModel(name: 'Adidas', image: AppImages.adidasIcon),
-      BrandModel(name: 'Nike', image: AppImages.nikeIcon),
-      BrandModel(name: 'Fila', image: AppImages.filaIcon),
-      BrandModel(name: 'Puma', image: AppImages.pumaIcon),
-      BrandModel(name: 'Adidas', image: AppImages.adidasIcon),
-      BrandModel(name: 'Nike', image: AppImages.nikeIcon),
-    ];
+
 
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
@@ -94,11 +88,7 @@ class HomePage extends StatelessWidget {
                           child: CustomBrandList(brands: brands),
                         ),
                         const SizedBox(height: 15),
-                        CustomRowViewAll(
-                          title: 'New Arrival',
-                          onPresse: () {
-                          },
-                        ),
+                        CustomRowViewAll(title: 'New Arrival', onPresse: () {}),
                         const SizedBox(height: 15),
                       ]),
                     ),
@@ -115,9 +105,9 @@ class HomePage extends StatelessWidget {
                               Routes.homeDetilsRoute,
                             );
                           },
-                          child: CustomProductCard(index: index),
+                          child: CustomProductCard(product: products[index]),
                         );
-                      }, childCount: 10),
+                      }, childCount: products.length),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,

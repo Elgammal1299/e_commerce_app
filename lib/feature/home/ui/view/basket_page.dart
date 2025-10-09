@@ -23,9 +23,9 @@ class BasketPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomCardItem(),
+              CustomCardItem(image: AppImages.pro3Icon),
               SizedBox(height: 20),
-              CustomCardItem(),
+              CustomCardItem(image: AppImages.proIcon),
               SizedBox(height: 20),
               Row(
                 children: [

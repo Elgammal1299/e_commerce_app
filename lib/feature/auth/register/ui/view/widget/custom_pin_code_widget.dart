@@ -33,7 +33,6 @@ class CustomPinCodeWidget extends StatelessWidget {
       backgroundColor: Colors.white,
       enableActiveFill: true,
       onCompleted: (code) {
-        //هنا بقا هناخد الكود اللى المستخدم دخله ونشوف بقا هنتعامل معاها ازاى
 
         print("Completed");
       },
