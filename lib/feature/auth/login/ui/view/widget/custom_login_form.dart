@@ -43,11 +43,11 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginError) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.message)));
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.message)));
         } else if (state is LoginSuccess) {
-          // تسجيل دخول ناجح، نروح للـ Home
-          Navigator.pushReplacementNamed(context, Routes.homeRoute);
+          Navigator.pushReplacementNamed(context, Routes.navBarRoute);
         }
       },
       builder: (context, state) {
@@ -67,17 +67,11 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
               SizedBox(height: 40),
               isLoading
                   ? CircularProgressIndicator()
-                  : CustomElevatedButton(
-                      text: 'Next',
-                      onPressed: _submitLogin,
-                    ),
+                  : CustomElevatedButton(text: 'Next', onPressed: _submitLogin),
               SizedBox(height: 14),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text('Cancel'),
-                ),
+                child: TextButton(onPressed: () {}, child: Text('Cancel')),
               ),
             ],
           ),

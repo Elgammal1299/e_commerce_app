@@ -20,7 +20,9 @@ class HomeDetilsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context);
+        },
         child: Container(
           padding: const EdgeInsets.all(20),
           width: double.infinity,
@@ -119,7 +121,9 @@ class HomeDetilsPage extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: 16),
-                                  CustomRowreview(item: state.productModel.productPictures),
+                                  CustomRowreview(
+                                    item: state.productModel.productPictures,
+                                  ),
                                   const SizedBox(height: 15),
                                   Row(
                                     children: [
@@ -164,6 +168,7 @@ class HomeDetilsPage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 10),
                                   CustomReviewItem(
+                                     rating: product.rating,
                                     image: AppImages.pro6Icon,
                                     title: 'Ronald Richards',
                                   ),

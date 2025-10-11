@@ -2,9 +2,10 @@ import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomReviewItem extends StatelessWidget {
-  const CustomReviewItem({super.key, required this.image, required this.title});
+  const CustomReviewItem({super.key, required this.image, required this.title, required this.rating});
   final String image;
   final String title;
+  final int rating;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class CustomReviewItem extends StatelessWidget {
             Spacer(),
             Column(
               children: [
-                Text('4.5 rating', style: AppStyles.styleRegular20(context)),
+                Text('${rating.toString()} rating', style: AppStyles.styleRegular20(context)),
                 SizedBox(height: 7),
                 Text('⭐⭐⭐⭐'),
               ],
