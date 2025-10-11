@@ -1,12 +1,13 @@
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
-import 'package:e_commerce_app/feature/home/data/model/product_model2.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 class CustomProductCard extends StatelessWidget {
-  final ProductModel product;
+  final ProductItem product;
   const CustomProductCard({super.key, required this.product});
 
   @override
@@ -18,11 +19,23 @@ class CustomProductCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                product.image,
+              child: CachedNetworkImage(
+                imageUrl: product.coverPictureUrl,
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.grey.shade300, // أو shimmer لو حابب
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Image.asset(
+                  AppImages.proIcon,
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(height: 8),
@@ -47,10 +60,7 @@ class CustomProductCard extends StatelessWidget {
             onTap: () {},
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(
-                
-                AppImages.wishIcon
-              ),
+              child: SvgPicture.asset(AppImages.wishIcon),
             ),
           ),
         ),

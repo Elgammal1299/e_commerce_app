@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/DI/setup_get_it.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
@@ -5,6 +6,7 @@ import 'package:e_commerce_app/feature/home/ui/view/basket_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/wishlist_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/payment_page.dart';
+import 'package:e_commerce_app/feature/home/ui/view_model/product_cubit/product_cubit.dart';
 import 'package:e_commerce_app/feature/nav_bar/view_model/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +24,15 @@ class NavBarPage extends StatelessWidget {
         builder: (context, state) {
           return IndexedStack(
             index: state,
-            children: [HomePage(), WishlistPage(), BasketPage(), PaymentPage()],
+            children: [
+              BlocProvider(
+                create: (context) => getIt<ProductCubit>()..getProduct(),
+                child: HomePage(),
+              ),
+              WishlistPage(),
+              BasketPage(),
+              PaymentPage(),
+            ],
           );
         },
       ),

@@ -16,7 +16,7 @@ class DioFactory {
     if (dio == null) {
       dio = Dio(BaseOptions(baseUrl: baseUrl, followRedirects: true));
 
-      await addDioHeaders();
+      // await addDioHeaders();
       addDioInterceptor();
     }
     return dio!;

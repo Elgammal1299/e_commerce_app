@@ -97,7 +97,7 @@ class WishlistPage extends StatelessWidget {
                               Routes.homeDetilsRoute,
                             );
                           },
-                          child: CustomProductCard(product: products[index]),
+                          // child: CustomProductCard(product: products[index]),
                         );
                       }, childCount: products.length),
                       gridDelegate:

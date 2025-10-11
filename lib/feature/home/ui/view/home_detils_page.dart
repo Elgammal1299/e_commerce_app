@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_review_item.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_rreview.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_size..dart';
@@ -10,7 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeDetilsPage extends StatelessWidget {
-  const HomeDetilsPage({super.key});
+  const HomeDetilsPage({super.key, required this.productItem});
+  final ProductItem productItem;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +45,26 @@ class HomeDetilsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Image.asset(
+                      CachedNetworkImage(
+                        imageUrl: productItem.coverPictureUrl,
+
                         height: MediaQuery.sizeOf(context).height / 2,
-                        AppImages.pro6Icon,
                         width: double.infinity,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Container(
+                          height: 200,
+                          width: double.infinity,
+                          color: Colors.grey.shade300, // أو shimmer لو حابب
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Image.asset(
+                          AppImages.proIcon,
+                          height: 200,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
 
                       Padding(
@@ -73,14 +91,14 @@ class HomeDetilsPage extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Nike Club Fleece',
+                                  productItem.name,
                                   style: AppStyles.styleRegular20(
                                     context,
                                   ).copyWith(fontWeight: FontWeight.bold),
                                 ),
                                 Spacer(),
                                 Text(
-                                  r'$120',
+                                  '${productItem.price.toString()} \$',
                                   style: AppStyles.styleRegular20(
                                     context,
                                   ).copyWith(fontWeight: FontWeight.bold),
@@ -89,7 +107,9 @@ class HomeDetilsPage extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: 16),
-                            CustomRowreview(),
+                            CustomRowreview(
+                           
+                            ),
                             SizedBox(height: 15),
                             Row(
                               children: [
