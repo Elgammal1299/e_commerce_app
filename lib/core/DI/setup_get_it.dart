@@ -9,6 +9,7 @@ import 'package:e_commerce_app/feature/auth/register/ui/view_model/register_cubi
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/verify_email_cubit/verify_email_cubit.dart';
 import 'package:e_commerce_app/feature/home/data/repo/product_id_repo.dart';
 import 'package:e_commerce_app/feature/home/data/repo/products_repo.dart';
+import 'package:e_commerce_app/feature/home/ui/view_model/favorites_cubit/favorites_cubit.dart';
 import 'package:e_commerce_app/feature/home/ui/view_model/product_cubit/product_cubit.dart';
 import 'package:e_commerce_app/feature/home/ui/view_model/product_id_cubit/product_id_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -67,5 +68,10 @@ Future<void> setupGetIt() async {
   // ✅ Register ProductIdCubit
   getIt.registerFactory<ProductIdCubit>(
     () => ProductIdCubit(getIt<ProductIdRepo>()),
+  );
+  //================================
+  // ✅ Register FavoritesCubit
+  getIt.registerFactory<FavoritesCubit>(
+    () => FavoritesCubit(getIt<ProductsRepo>()),
   );
 }

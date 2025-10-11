@@ -8,7 +8,6 @@ import 'package:e_commerce_app/feature/auth/register/ui/view/register_page.dart'
 import 'package:e_commerce_app/feature/auth/register/ui/view/verify_email_page.dart';
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/register_cubit/register_cubit.dart';
 import 'package:e_commerce_app/feature/auth/register/ui/view_model/verify_email_cubit/verify_email_cubit.dart';
-import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_detils_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/review_page.dart';

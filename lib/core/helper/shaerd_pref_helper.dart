@@ -100,4 +100,57 @@ class SharedPrefHelper {
     const flutterSecureStorage = FlutterSecureStorage();
     await flutterSecureStorage.deleteAll();
   }
+
+  // Favorites functionality
+  static const String _favoritesKey = 'favorites_list';
+
+  /// Saves a list of favorite product IDs to SharedPreferences.
+  static setFavorites(List<String> favorites) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    log("SharedPrefHelper : setFavorites with favorites : $favorites");
+    await sharedPreferences.setStringList(_favoritesKey, favorites);
+  }
+
+  /// Gets the list of favorite product IDs from SharedPreferences.
+  static Future<List<String>> getFavorites() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    log('SharedPrefHelper : getFavorites');
+    return sharedPreferences.getStringList(_favoritesKey) ?? [];
+  }
+
+  /// Adds a product ID to favorites list.
+  static Future<void> addToFavorites(String productId) async {
+    List<String> favorites = await getFavorites();
+    if (!favorites.contains(productId)) {
+      favorites.add(productId);
+      await setFavorites(favorites);
+    }
+  }
+
+  /// Removes a product ID from favorites list.
+  static Future<void> removeFromFavorites(String productId) async {
+    List<String> favorites = await getFavorites();
+    favorites.remove(productId);
+    await setFavorites(favorites);
+  }
+
+  /// Checks if a product ID is in favorites.
+  static Future<bool> isFavorite(String productId) async {
+    List<String> favorites = await getFavorites();
+    return favorites.contains(productId);
+  }
+
+  /// Toggles favorite status for a product ID.
+  static Future<bool> toggleFavorite(String productId) async {
+    List<String> favorites = await getFavorites();
+    if (favorites.contains(productId)) {
+      favorites.remove(productId);
+      await setFavorites(favorites);
+      return false;
+    } else {
+      favorites.add(productId);
+      await setFavorites(favorites);
+      return true;
+    }
+  }
 }
