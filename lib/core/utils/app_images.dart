@@ -31,4 +31,5 @@ class AppImages {
   static const String mapIcon = 'assets/images/map.png';
   static const String visaIcon = 'assets/images/visa.png';
   static const String paymentImage = 'assets/images/payment.png';
+  static const String logoSplash = 'assets/images/Logo.svg';
 }

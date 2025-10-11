@@ -33,12 +33,12 @@ class CustomPinCodeWidget extends StatelessWidget {
       backgroundColor: Colors.white,
       enableActiveFill: true,
       onCompleted: (code) {
-
         print("Completed");
       },
       onChanged: (value) {
         print(value);
       },
+ 
     );
   }
 }

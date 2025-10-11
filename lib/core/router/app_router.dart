@@ -13,12 +13,15 @@ import 'package:e_commerce_app/feature/home/ui/view/home_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/review_page.dart';
 import 'package:e_commerce_app/feature/nav_bar/view/nav_bar.dart';
 import 'package:e_commerce_app/feature/nav_bar/view_model/nav_bar_cubit.dart';
+import 'package:e_commerce_app/feature/splash_screen/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.splashRoute:
+        return RouterTransitions.build(SplashPage());
       case Routes.startRoute:
         return RouterTransitions.build(StartPage());
       case Routes.homeDetilsRoute:
