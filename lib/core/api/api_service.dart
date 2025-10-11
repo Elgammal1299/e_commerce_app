@@ -5,6 +5,8 @@ import 'package:e_commerce_app/feature/auth/login/data/model/login_response_mode
 import 'package:e_commerce_app/feature/auth/register/data/model/register_body_model.dart';
 import 'package:e_commerce_app/feature/auth/register/data/model/register_response_model.dart';
 import 'package:e_commerce_app/feature/auth/register/data/model/verify_otp_body.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_id_model.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -30,4 +32,13 @@ abstract class ApiService {
   // service for verifyEmail
   @POST(ApiConstants.verifyEmail)
   Future<String> verifyEmail(@Body() VerifyOtpBody body);
+
+  // =================== products ===================
+  // service for products
+  @GET(ApiConstants.products)
+  Future<ProductModel> getProducts();
+
+  // service for productId
+  @GET(ApiConstants.productId)
+  Future<ProductIdModel> getProductsById(@Path("id") String id);
 }

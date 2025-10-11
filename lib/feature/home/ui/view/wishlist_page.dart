@@ -2,7 +2,7 @@ import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
-import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
+import 'package:e_commerce_app/feature/home/data/model/product_model2.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
