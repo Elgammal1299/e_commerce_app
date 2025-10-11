@@ -1,19 +1,249 @@
+// import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:e_commerce_app/core/router/routes.dart';
+// import 'package:e_commerce_app/core/utils/app_colors.dart';
+// import 'package:e_commerce_app/core/utils/app_images.dart';
+// import 'package:e_commerce_app/core/utils/app_styles.dart';
+// import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
+// import 'package:e_commerce_app/feature/home/ui/view/widget/custom_review_item.dart';
+// import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_rreview.dart';
+// import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_size..dart';
+// import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_view_all.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+
+// class HomeDetilsPage extends StatelessWidget {
+//   const HomeDetilsPage({super.key, required this.productItem});
+//   final ProductItem productItem;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       bottomNavigationBar: InkWell(
+//         onTap: () {},
+//         child: Container(
+//           padding: EdgeInsets.all(20),
+//           width: double.infinity,
+//           decoration: BoxDecoration(color: AppColors.primryColor),
+
+//           child: Text(
+//             textAlign: TextAlign.center,
+//             'Add to Cart',
+//             style: AppStyles.styleRegular20(
+//               context,
+//             ).copyWith(color: AppColors.whiteColor),
+//           ),
+//         ),
+//       ),
+//       backgroundColor: AppColors.whiteColor,
+//       body: SafeArea(
+//         child: Stack(
+//           children: [
+//             CustomScrollView(
+//               slivers: [
+//                 SliverToBoxAdapter(
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+
+//                     children: [
+//                       CachedNetworkImage(
+//                         imageUrl: productItem.coverPictureUrl,
+
+//                         height: MediaQuery.sizeOf(context).height / 2,
+//                         width: double.infinity,
+//                         fit: BoxFit.cover,
+//                         placeholder: (context, url) => Container(
+//                           height: 200,
+//                           width: double.infinity,
+//                           color: Colors.grey.shade300, // أو shimmer لو حابب
+//                           child: const Center(
+//                             child: CircularProgressIndicator(),
+//                           ),
+//                         ),
+//                         errorWidget: (context, url, error) => Image.asset(
+//                           AppImages.proIcon,
+//                           height: 200,
+//                           width: double.infinity,
+//                           fit: BoxFit.cover,
+//                         ),
+//                       ),
+
+//                       Padding(
+//                         padding: const EdgeInsets.all(20),
+//                         child: Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+
+//                           children: [
+// Row(
+//   children: [
+//     Text(
+//       'Men\'s Printed Pullover Hoodie',
+//       style: AppStyles.styleRegular15(context),
+//     ),
+//     Spacer(),
+//     Text(
+//       'Price',
+//       style: AppStyles.styleRegular15(context),
+//     ),
+//     SizedBox(width: 20),
+//   ],
+// ),
+// SizedBox(height: 5),
+//                             Row(
+//                               children: [
+//                                 Text(
+//                                   productItem.name,
+//                                   style: AppStyles.styleRegular20(
+//                                     context,
+//                                   ).copyWith(fontWeight: FontWeight.bold),
+//                                 ),
+//                                 Spacer(),
+//                                 Text(
+//                                   '${productItem.price.toString()} \$',
+//                                   style: AppStyles.styleRegular20(
+//                                     context,
+//                                   ).copyWith(fontWeight: FontWeight.bold),
+//                                 ),
+//                                 SizedBox(width: 15),
+//                               ],
+//                             ),
+//                             SizedBox(height: 16),
+//                             CustomRowreview(
+
+//                             ),
+//                             SizedBox(height: 15),
+//                             Row(
+//                               children: [
+//                                 Text(
+//                                   'Size',
+//                                   style: AppStyles.styleRegular20(
+//                                     context,
+//                                   ).copyWith(fontWeight: FontWeight.bold),
+//                                 ),
+//                                 Spacer(),
+//                                 Text(
+//                                   'Size Guide',
+//                                   style: AppStyles.styleRegular15(context),
+//                                 ),
+//                               ],
+//                             ),
+//                             SizedBox(height: 8),
+//                             CustomRowSize(),
+//                             SizedBox(height: 20),
+//                             Text(
+//                               'Description',
+//                               style: AppStyles.styleRegular20(
+//                                 context,
+//                               ).copyWith(fontWeight: FontWeight.bold),
+//                             ),
+//                             SizedBox(height: 10),
+//                             Text(
+//                               'The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feel with Read More..',
+//                               style: AppStyles.styleRegular15(context),
+//                             ),
+//                             SizedBox(height: 10),
+//                             CustomRowViewAll(
+//                               title: 'Reviews',
+//                               onPresse: () {
+//                                 Navigator.pushNamed(
+//                                   context,
+//                                   Routes.reviewRoute,
+//                                 );
+//                               },
+//                             ),
+//                             SizedBox(height: 10),
+//                             CustomReviewItem(
+//                               image: AppImages.pro6Icon,
+//                               title: 'Ronald Richards',
+//                             ),
+//                             SizedBox(height: 10),
+//                             Row(
+//                               children: [
+//                                 Column(
+//                                   children: [
+//                                     Text(
+//                                       'Total Price',
+//                                       style: AppStyles.styleRegular20(
+//                                         context,
+//                                       ).copyWith(fontWeight: FontWeight.bold),
+//                                     ),
+//                                     SizedBox(height: 10),
+//                                     Text(
+//                                       'with VAT,SD',
+//                                       style: AppStyles.styleRegular15(context),
+//                                     ),
+//                                   ],
+//                                 ),
+//                                 Spacer(),
+//                                 Text(
+//                                   r'$120',
+//                                   style: AppStyles.styleRegular20(
+//                                     context,
+//                                   ).copyWith(fontWeight: FontWeight.bold),
+//                                 ),
+//                               ],
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+
+//                 const SliverToBoxAdapter(child: SizedBox(height: 50)),
+//               ],
+//             ),
+
+//             Positioned(
+//               top: 10,
+//               left: 16,
+//               right: 16,
+//               child: Row(
+//                 children: [
+//                   Container(
+//                     padding: const EdgeInsets.all(12),
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(99),
+//                       color: AppColors.grey3Color,
+//                     ),
+//                     child: Icon(Icons.arrow_back),
+//                   ),
+//                   const Spacer(),
+//                   Container(
+//                     padding: const EdgeInsets.all(12),
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(99),
+//                       color: AppColors.grey3Color,
+//                     ),
+//                     child: SvgPicture.asset(AppImages.lockIcon),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce_app/core/DI/setup_get_it.dart';
 import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_styles.dart';
-import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_review_item.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_rreview.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_size..dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_view_all.dart';
+import 'package:e_commerce_app/feature/home/ui/view_model/product_id_cubit/product_id_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeDetilsPage extends StatelessWidget {
-  const HomeDetilsPage({super.key, required this.productItem});
-  final ProductItem productItem;
+  final String productId;
+  const HomeDetilsPage({super.key, required this.productId});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +251,9 @@ class HomeDetilsPage extends StatelessWidget {
       bottomNavigationBar: InkWell(
         onTap: () {},
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           width: double.infinity,
           decoration: BoxDecoration(color: AppColors.primryColor),
-
           child: Text(
             textAlign: TextAlign.center,
             'Add to Cart',
@@ -36,190 +265,178 @@ class HomeDetilsPage extends StatelessWidget {
       ),
       backgroundColor: AppColors.whiteColor,
       body: SafeArea(
-        child: Stack(
-          children: [
-            CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      CachedNetworkImage(
-                        imageUrl: productItem.coverPictureUrl,
-
-                        height: MediaQuery.sizeOf(context).height / 2,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Container(
-                          height: 200,
-                          width: double.infinity,
-                          color: Colors.grey.shade300, // أو shimmer لو حابب
-                          child: const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                        errorWidget: (context, url, error) => Image.asset(
-                          AppImages.proIcon,
-                          height: 200,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.all(20),
+        child: BlocBuilder<ProductIdCubit, ProductIdState>(
+          builder: (context, state) {
+            if (state is ProductIdLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is ProductIdError) {
+              return Center(
+                child: Text(
+                  state.errMessage,
+                  style: const TextStyle(color: Colors.red),
+                ),
+              );
+            } else if (state is ProductIdSuccess) {
+              final product = state.productModel;
+              return Stack(
+                children: [
+                  CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Men\'s Printed Pullover Hoodie',
-                                  style: AppStyles.styleRegular15(context),
+                            CachedNetworkImage(
+                              imageUrl: product.coverPictureUrl,
+                              height: MediaQuery.sizeOf(context).height / 2,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              placeholder: (context, url) => Container(
+                                height: 200,
+                                width: double.infinity,
+                                color: Colors.grey.shade300,
+                                child: const Center(
+                                  child: CircularProgressIndicator(),
                                 ),
-                                Spacer(),
-                                Text(
-                                  'Price',
-                                  style: AppStyles.styleRegular15(context),
-                                ),
-                                SizedBox(width: 20),
-                              ],
+                              ),
+                              errorWidget: (context, url, error) => Image.asset(
+                                AppImages.proIcon,
+                                height: 200,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            SizedBox(height: 5),
-                            Row(
-                              children: [
-                                Text(
-                                  productItem.name,
-                                  style: AppStyles.styleRegular20(
-                                    context,
-                                  ).copyWith(fontWeight: FontWeight.bold),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '${productItem.price.toString()} \$',
-                                  style: AppStyles.styleRegular20(
-                                    context,
-                                  ).copyWith(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(width: 15),
-                              ],
-                            ),
-                            SizedBox(height: 16),
-                            CustomRowreview(
-                           
-                            ),
-                            SizedBox(height: 15),
-                            Row(
-                              children: [
-                                Text(
-                                  'Size',
-                                  style: AppStyles.styleRegular20(
-                                    context,
-                                  ).copyWith(fontWeight: FontWeight.bold),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'Size Guide',
-                                  style: AppStyles.styleRegular15(context),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 8),
-                            CustomRowSize(),
-                            SizedBox(height: 20),
-                            Text(
-                              'Description',
-                              style: AppStyles.styleRegular20(
-                                context,
-                              ).copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feel with Read More..',
-                              style: AppStyles.styleRegular15(context),
-                            ),
-                            SizedBox(height: 10),
-                            CustomRowViewAll(
-                              title: 'Reviews',
-                              onPresse: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  Routes.reviewRoute,
-                                );
-                              },
-                            ),
-                            SizedBox(height: 10),
-                            CustomReviewItem(
-                              image: AppImages.pro6Icon,
-                              title: 'Ronald Richards',
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Total Price',
-                                      style: AppStyles.styleRegular20(
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Men\'s Printed Pullover Hoodie',
+                                        style: AppStyles.styleRegular15(
+                                          context,
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        'Price',
+                                        style: AppStyles.styleRegular15(
+                                          context,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20),
+                                    ],
+                                  ),
+                                  SizedBox(height: 5),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        product.name,
+                                        style: AppStyles.styleRegular20(
+                                          context,
+                                        ).copyWith(fontWeight: FontWeight.bold),
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        '\$${product.price}',
+                                        style: AppStyles.styleRegular20(
+                                          context,
+                                        ).copyWith(fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 16),
+                                  CustomRowreview(item: state.productModel.productPictures),
+                                  const SizedBox(height: 15),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Size',
+                                        style: AppStyles.styleRegular20(
+                                          context,
+                                        ).copyWith(fontWeight: FontWeight.bold),
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        'Size Guide',
+                                        style: AppStyles.styleRegular15(
+                                          context,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+                                  CustomRowSize(),
+                                  const SizedBox(height: 20),
+                                  Text(
+                                    'Description',
+                                    style: AppStyles.styleRegular20(
+                                      context,
+                                    ).copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    product.description,
+                                    style: AppStyles.styleRegular15(context),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  CustomRowViewAll(
+                                    title: 'Reviews',
+                                    onPresse: () {
+                                      Navigator.pushNamed(
                                         context,
-                                      ).copyWith(fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text(
-                                      'with VAT,SD',
-                                      style: AppStyles.styleRegular15(context),
-                                    ),
-                                  ],
-                                ),
-                                Spacer(),
-                                Text(
-                                  r'$120',
-                                  style: AppStyles.styleRegular20(
-                                    context,
-                                  ).copyWith(fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                                        Routes.reviewRoute,
+                                      );
+                                    },
+                                  ),
+                                  const SizedBox(height: 10),
+                                  CustomReviewItem(
+                                    image: AppImages.pro6Icon,
+                                    title: 'Ronald Richards',
+                                  ),
+                                  const SizedBox(height: 50),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                ),
-
-                const SliverToBoxAdapter(child: SizedBox(height: 50)),
-              ],
-            ),
-
-            Positioned(
-              top: 10,
-              left: 16,
-              right: 16,
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(99),
-                      color: AppColors.grey3Color,
+                  Positioned(
+                    top: 10,
+                    left: 16,
+                    right: 16,
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            color: AppColors.grey3Color,
+                          ),
+                          child: Icon(Icons.arrow_back),
+                        ),
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            color: AppColors.grey3Color,
+                          ),
+                          child: SvgPicture.asset(AppImages.lockIcon),
+                        ),
+                      ],
                     ),
-                    child: Icon(Icons.arrow_back),
-                  ),
-                  const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(99),
-                      color: AppColors.grey3Color,
-                    ),
-                    child: SvgPicture.asset(AppImages.lockIcon),
                   ),
                 ],
-              ),
-            ),
-          ],
+              );
+            } else {
+              return const SizedBox();
+            }
+          },
         ),
       ),
     );

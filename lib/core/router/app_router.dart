@@ -12,6 +12,7 @@ import 'package:e_commerce_app/feature/home/data/model/product_model.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_detils_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/home_page.dart';
 import 'package:e_commerce_app/feature/home/ui/view/review_page.dart';
+import 'package:e_commerce_app/feature/home/ui/view_model/product_id_cubit/product_id_cubit.dart';
 import 'package:e_commerce_app/feature/nav_bar/view/nav_bar.dart';
 import 'package:e_commerce_app/feature/nav_bar/view_model/nav_bar_cubit.dart';
 import 'package:e_commerce_app/feature/splash_screen/splash_page.dart';
@@ -26,10 +27,13 @@ class AppRouter {
       case Routes.startRoute:
         return RouterTransitions.build(StartPage());
       case Routes.homeDetilsRoute:
-        final productItem = settings.arguments as ProductItem;
+        final productId = settings.arguments as String;
 
         return RouterTransitions.build(
-          HomeDetilsPage(productItem: productItem),
+          BlocProvider(
+            create: (context) => getIt<ProductIdCubit>()..getProduct(productId),
+            child: HomeDetilsPage(productId: productId),
+          ),
         );
       case Routes.reviewRoute:
         return RouterTransitions.build(ReviewPage());

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce_app/core/router/routes.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
@@ -5,7 +7,6 @@ import 'package:e_commerce_app/core/utils/app_styles.dart';
 import 'package:e_commerce_app/core/utils/widget/custom_product_card_shimmer.dart';
 import 'package:e_commerce_app/core/utils/widget/custom_text_form.dart';
 import 'package:e_commerce_app/feature/home/data/model/brand_model.dart';
-import 'package:e_commerce_app/feature/home/data/model/product_model2.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_band_list.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_product_card.dart';
 import 'package:e_commerce_app/feature/home/ui/view/widget/custom_row_view_all.dart';
@@ -188,12 +189,14 @@ class CustomProductList extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate((context, index) {
                 final product = products[index];
+                final productId = products[index].id.toString();
+                log(productId);
                 return InkWell(
                   onTap: () {
                     Navigator.pushNamed(
                       context,
                       Routes.homeDetilsRoute,
-                      arguments: product,
+                      arguments: productId,
                     );
                   },
                   child: CustomProductCard(product: product),

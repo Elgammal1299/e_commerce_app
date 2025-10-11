@@ -40,5 +40,5 @@ abstract class ApiService {
 
   // service for productId
   @GET(ApiConstants.productId)
-  Future<ProductIdModel> getProductsById(@Path("id") String id);
+  Future<ProductIdModel> getProductsById(@Path("Id") String id);
 }
